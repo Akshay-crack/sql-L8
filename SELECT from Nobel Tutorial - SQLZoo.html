@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<!-- saved from url=(0050)https://sqlzoo.net/wiki/SELECT_from_Nobel_Tutorial -->
+<html class="client-js" lang="en-GB" dir="ltr" bbai-tooltip-injected="true"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>SELECT from Nobel Tutorial - SQLZoo</title>
+<script>document.documentElement.className="client-js";RLCONF={"wgBreakFrames":false,"wgSeparatorTransformTable":["",""],"wgDigitTransformTable":["",""],"wgDefaultDateFormat":"dmy","wgMonthNames":["","January","February","March","April","May","June","July","August","September","October","November","December"],"wgRequestId":"451ca0aaae96135814a8a5e9","wgCanonicalNamespace":"","wgCanonicalSpecialPageName":false,"wgNamespaceNumber":0,"wgPageName":"SELECT_from_Nobel_Tutorial","wgTitle":"SELECT from Nobel Tutorial","wgCurRevisionId":40837,"wgRevisionId":40837,"wgArticleId":20,"wgIsArticle":true,"wgIsRedirect":false,"wgAction":"view","wgUserName":null,"wgUserGroups":["*"],"wgCategories":["Pages using deprecated source tags","Languages pages"],"wgPageViewLanguage":"en-gb","wgPageContentLanguage":"en-gb","wgPageContentModel":"wikitext","wgRelevantPageName":"SELECT_from_Nobel_Tutorial","wgRelevantArticleId":20,"wgIsProbablyEditable":false,"wgRelevantPageIsProbablyEditable":false,"wgRestrictionEdit":[],"wgRestrictionMove":[]};
+RLSTATE={"site.styles":"ready","user.styles":"ready","user":"ready","user.options":"loading","ext.pygments":"ready","skins.timeless":"ready"};RLPAGEMODULES=["ext.pygments.view","site","mediawiki.page.ready","mediawiki.toc","skins.timeless.js"];</script>
+<script>(RLQ=window.RLQ||[]).push(function(){mw.loader.impl(function(){return["user.options@12s5i",function($,jQuery,require,module){mw.user.tokens.set({"patrolToken":"+\\","watchToken":"+\\","csrfToken":"+\\"});
+}];});});</script>
+<link rel="stylesheet" href="./SELECT from Nobel Tutorial - SQLZoo_files/load.php">
+<script async="" src="./SELECT from Nobel Tutorial - SQLZoo_files/load(1).php"></script>
+<!--[if IE]><link rel="stylesheet" href="/w/skins/Timeless/resources/IE9fixes.css?ffe73" media="screen"><![endif]-->
+<style>
+@media screen {
+	.overflowed{margin:1em 0;position:relative;overflow:hidden}.overflowed .content-table-left,.overflowed .content-table-right{height:100%;position:absolute;bottom:0;z-index:1}.overflowed .content-table-right{ right:0}.mw-content-rtl .overflowed .content-table-right{ left:0; right:unset}.scroll-right.overflowed .content-table-right{box-shadow:0 0 4px 1px rgba(0,0,0,0.25);border-left:solid 1px #c8ccd1}.overflowed .content-table-left{ left:0}.mw-content-rtl .overflowed .content-table-left{ right:0; left:unset}.scroll-left.overflowed .content-table-left{box-shadow:0 0 4px 1px rgba(0,0,0,0.25);border-left:solid 1px #c8ccd1}.overflowed .content-table{overflow:hidden;overflow-x:scroll}.overflowed .content-table > table{margin:0}.overflowed .content-table > table.mw_metadata,.overflowed .content-table > table.mw-datatable,.overflowed .content-table > table.wikitable{border-bottom-width:0}.content-table-scrollbar.inactive{position:absolute;top:-99999px;bottom:unset;left:-99999px}.content-table-scrollbar{position:fixed;bottom:0;overflow-x:scroll;z-index:1}.content-table-spoof{height:1px}}
+@media screen {
+	.toctoggle{-webkit-user-select:none;-moz-user-select:none;user-select:none;font-size:94%}}
+.mw-highlight-copy--bound button{position:absolute;top:-1em;right:-0.9em;box-sizing:border-box;padding:5px 7px;border-radius:2px;background:#fff;color:#0645ad;border:1px solid #eee}.mw-highlight-copy--bound button:hover{cursor:pointer;color:#447ff5;background:#f9f9f9;border-color:#447ff5}.mw-highlight-copy--bound button:active{color:#2a4b8d;background:#eee;border-color:#2a4b8d}
+#mw-teleport-target{position:absolute;z-index:450}#mw-teleport-target{font-size:0.95em}</style><meta name="ResourceLoaderDynamicStyles" content="">
+<link rel="stylesheet" href="./SELECT from Nobel Tutorial - SQLZoo_files/load(2).php">
+<meta name="generator" content="MediaWiki 1.43.1">
+<meta name="robots" content="max-image-preview:standard">
+<meta name="format-detection" content="telephone=no">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes, minimum-scale=0.25, maximum-scale=5.0">
+<link rel="search" type="application/opensearchdescription+xml" href="https://sqlzoo.net/w/rest.php/v1/search" title="SQLZoo (en-gb)">
+<link rel="EditURI" type="application/rsd+xml" href="https://sqlzoo.net/w/api.php?action=rsd">
+<link rel="alternate" type="application/atom+xml" title="SQLZoo Atom feed" href="https://sqlzoo.net/w/index.php?title=Special:RecentChanges&amp;feed=atom">
+<script type="text/javascript" src="./SELECT from Nobel Tutorial - SQLZoo_files/sqlzoo.js.download" defer=""></script><link rel="stylesheet" href="./SELECT from Nobel Tutorial - SQLZoo_files/sqlzoo.css">
+<style>@font-face {
+              font-family: 'Open Sans Regular';
+              font-style: normal;
+              font-weight: 400;
+              src: url('chrome-extension://gkkdmjjodidppndkbkhhknakbeflbomf/fonts/open_sans/open-sans-v18-latin-regular.woff');
+          }</style><style>@font-face {
+              font-family: 'Open Sans Bold';
+              font-style: normal;
+              font-weight: 800;
+              src: url('chrome-extension://gkkdmjjodidppndkbkhhknakbeflbomf/fonts/open_sans/OpenSans-Bold.woff');
+          }</style><style>@font-face {
+              font-family: 'Open Sans ExtraBold';
+              font-style: normal;
+              font-weight: 800;
+              src: url('chrome-extension://gkkdmjjodidppndkbkhhknakbeflbomf/fonts/open_sans/open-sans-v18-latin-800.woff');
+          }</style></head>
+<body class="mediawiki ltr sitedir-ltr mw-hide-empty-elt ns-0 ns-subject page-SELECT_from_Nobel_Tutorial rootpage-SELECT_from_Nobel_Tutorial skin-timeless action-view skin--responsive mysql-tinky"><div id="mw-wrapper"><div id="mw-header-container" class="ts-container"><div id="mw-header" class="ts-inner"><div id="user-tools"><div id="personal"><h2><span>Anonymous</span></h2><div id="personal-inner" class="dropdown"><div role="navigation" class="mw-portlet" id="p-personal" title="User menu" aria-labelledby="p-personal-label"><h3 id="p-personal-label" lang="en-GB" dir="ltr">Not logged in</h3><div class="mw-portlet-body"><ul lang="en-GB" dir="ltr"><li id="pt-login" class="mw-list-item"><a href="https://sqlzoo.net/w/index.php?title=Special:UserLogin&amp;returnto=SELECT+from+Nobel+Tutorial" title="You are encouraged to log in; however, it is not mandatory [alt-o]" accesskey="o"><span>Log in</span></a></li></ul></div></div></div></div><div><span></span><select id="engine"><option value="mysql-tinky" selected="selected">MySQL</option><option value="mysql-sage">MySQL sage</option><option value="postgres">PostgreSQL</option><option value="mssql-sage">Microsoft SQL</option><option value="oracle-sage">Oracle</option></select></div></div><div id="p-logo-text" class="mw-portlet" role="banner"><a id="p-banner" class="mw-wiki-title" href="https://sqlzoo.net/wiki/SQL_Tutorial">SQLZoo</a></div><div class="mw-portlet" id="p-search"><h3 lang="en-GB" dir="ltr"><label for="searchInput">Search</label></h3><form action="https://sqlzoo.net/w/index.php" id="searchform"><div id="simpleSearch"><div id="searchInput-container"><input type="search" name="search" placeholder="Search SQLZoo" aria-label="Search SQLZoo" autocapitalize="sentences" title="Search SQLZoo [alt-f]" accesskey="f" id="searchInput"></div><input type="hidden" value="Special:Search" name="title"><input class="searchButton mw-fallbackSearchButton" type="submit" name="fulltext" title="Search the pages for this text" id="mw-searchButton" value="Search"><input class="searchButton" type="submit" name="go" title="Go to a page with this exact name if it exists" id="searchButton" value="Go"></div></form></div><div id="coddy-banner" class="banners click-count"><img src="./SELECT from Nobel Tutorial - SQLZoo_files/logo.svg" style="height:4ex;margin-right:2ex;"><a id="coddy-top" href="https://link.coddy.tech/bvMS?af_web_dp=https%3A%2F%2Fcoddy.tech%2Flanding%2Fsql&amp;af_sub1=sqlzoo.net">Finding SQLZoo a bit clunky? Try Coddy.tech</a></div></div><div class="visualClear"></div></div><div id="mw-header-hack" class="color-bar"><div class="color-middle-container"><div class="color-middle"></div></div><div class="color-left"></div><div class="color-right"></div></div><div id="mw-header-nav-hack"><div class="color-bar"><div class="color-middle-container"><div class="color-middle"></div></div><div class="color-left"></div><div class="color-right"></div></div></div><div id="menus-cover"></div><div id="mw-content-container" class="ts-container"><div id="mw-content-block" class="ts-inner"><div id="mw-content-wrapper"><div id="mw-content"><div id="content" class="mw-body" role="main"><div class="mw-indicators">
+</div>
+<h1 id="firstHeading" class="firstHeading mw-first-heading"><span class="mw-page-title-main">SELECT from Nobel Tutorial</span></h1><div id="bodyContentOuter"><div id="siteSub">From SQLZoo</div><div id="mw-page-header-links"><div role="navigation" class="mw-portlet tools-inline" id="p-namespaces" aria-labelledby="p-namespaces-label"><h3 id="p-namespaces-label" lang="en-GB" dir="ltr">Namespaces</h3><div class="mw-portlet-body"><ul lang="en-GB" dir="ltr"><li id="ca-nstab-main" class="selected mw-list-item"><a href="https://sqlzoo.net/wiki/SELECT_from_Nobel_Tutorial" title="View the content page [alt-c]" accesskey="c"><span>Page</span></a></li><li id="ca-talk" class="new mw-list-item"><a href="https://sqlzoo.net/w/index.php?title=Talk:SELECT_from_Nobel_Tutorial&amp;action=edit&amp;redlink=1" rel="discussion" class="new" title="Discussion about the content page (page does not exist) [alt-t]" accesskey="t"><span>Discussion</span></a></li></ul></div></div><div role="navigation" class="mw-portlet tools-inline" id="p-more" aria-labelledby="p-more-label"><h3 id="p-more-label" lang="en-GB" dir="ltr">More</h3><div class="mw-portlet-body"><ul lang="en-GB" dir="ltr"><li id="ca-more" class="dropdown-toggle mw-list-item"><span>More</span></li></ul></div></div><div role="navigation" class="mw-portlet tools-inline" id="p-views" aria-labelledby="p-views-label"><h3 id="p-views-label" lang="en-GB" dir="ltr">Page actions</h3><div class="mw-portlet-body"><ul lang="en-GB" dir="ltr"><li id="ca-view" class="selected mw-list-item"><a href="https://sqlzoo.net/wiki/SELECT_from_Nobel_Tutorial"><span>Read</span></a></li><li id="ca-viewsource" class="mw-list-item"><a href="https://sqlzoo.net/w/index.php?title=SELECT_from_Nobel_Tutorial&amp;action=edit" title="This page is protected.
+You can view its source [alt-e]" accesskey="e"><span>View source</span></a></li><li id="ca-history" class="mw-list-item"><a href="https://sqlzoo.net/w/index.php?title=SELECT_from_Nobel_Tutorial&amp;action=history" title="Past revisions of this page [alt-h]" accesskey="h"><span>History</span></a></li></ul></div></div></div><div class="visualClear"></div><div id="bodyContent"><div id="contentSub"><div id="mw-content-subtitle"></div></div><div id="mw-content-text" class="mw-body-content"><div class="mw-content-ltr mw-parser-output" lang="en-GB" dir="ltr"><div class="content-table-wrapper"><div class="content-table-scrollbar inactive" style="width: 970.4px;"><div class="content-table-spoof" style="width: 245.262px;"></div></div><div class="content-table-left"></div><div class="content-table-right"></div><div class="content-table"><table class="nmbox" style="border:1px solid #AAA; border-collapse:collapse; clear:both; font-size:85%; margin: 0.5em 0">
+<tbody><tr style="background:#EEF3E2">
+<th class="mbox-image" style="white-space:nowrap; padding:4px 1em; border-right:1px solid #aaa"> <a href="https://sqlzoo.net/wiki/Special:MyLanguage/Project:Language_policy" title="Special:MyLanguage/Project:Language policy">Language:</a><span style="display:none"><a href="https://sqlzoo.net/wiki/SQLZoo:Language_policy" title="SQLZoo:Language policy">Project:Language policy</a></span></th>
+<td class="mbox-text" style="background:#F6F9ED"><b><a class="mw-selflink selflink">English</a></b> &nbsp;• <bdi lang="ja"><a href="https://sqlzoo.net/wiki/SELECT_from_Nobel_Tutorial/ja" title="SELECT from Nobel Tutorial/ja">日本語</a></bdi><span class="autonym"></span><span class="autonym"></span>&nbsp;• <bdi lang="zh"><a href="https://sqlzoo.net/wiki/SELECT_from_Nobel_Tutorial/zh" title="SELECT from Nobel Tutorial/zh">中文</a></bdi></td>
+</tr></tbody></table></div></div>
+<div class="ref_section">
+<div class="content-table-wrapper"><div class="content-table-scrollbar inactive" style="width: 970.4px;"><div class="content-table-spoof" style="width: 314.825px;"></div></div><div class="content-table-left"></div><div class="content-table-right"></div><div class="content-table"><table class="db_ref">
+<caption>nobel</caption>
+<tbody><tr><th>yr</th>
+<th>subject</th>
+<th>winner</th>
+</tr><tr>
+<td>1960</td>
+<td>Chemistry</td>
+<td align="left">Willard F. Libby</td>
+</tr>
+<tr>
+<td>1960</td>
+<td>Literature</td>
+<td align="left">Saint-John Perse</td>
+</tr>
+<tr>
+<td>1960</td>
+<td>Medicine</td>
+<td align="left">Sir Frank Macfarlane Burnet</td>
+</tr>
+<tr>
+<td>1960</td>
+<td>Medicine</td>
+<td align="left">Peter Madawar</td>
+</tr>
+<tr>
+<td colspan="5">...</td>
+</tr>
+</tbody></table></div></div>
+</div>
+  <div id="toc" class="toc" role="navigation" aria-labelledby="mw-toc-heading"><input type="checkbox" role="button" id="toctogglecheckbox" class="toctogglecheckbox" style="display:none" aria-label="Hide the table of contents"><div class="toctitle" lang="en-GB" dir="ltr"><h2 id="mw-toc-heading">Contents</h2><span class="toctogglespan"><label class="toctogglelabel" for="toctogglecheckbox"></label></span></div>
+<ul>
+<li class="toclevel-1"><a href="https://sqlzoo.net/wiki/SELECT_from_Nobel_Tutorial#nobel_Nobel_Laureates"><span class="tocnumber">1</span> <span class="toctext">nobel Nobel Laureates</span></a></li>
+<li class="toclevel-1 tocsection-1"><a href="https://sqlzoo.net/wiki/SELECT_from_Nobel_Tutorial#Winners_from_1950"><span class="tocnumber">2</span> <span class="toctext">Winners from 1950</span></a></li>
+<li class="toclevel-1 tocsection-2"><a href="https://sqlzoo.net/wiki/SELECT_from_Nobel_Tutorial#1962_Literature"><span class="tocnumber">3</span> <span class="toctext">1962 Literature</span></a></li>
+<li class="toclevel-1 tocsection-3"><a href="https://sqlzoo.net/wiki/SELECT_from_Nobel_Tutorial#Albert_Einstein"><span class="tocnumber">4</span> <span class="toctext">Albert Einstein</span></a></li>
+<li class="toclevel-1 tocsection-4"><a href="https://sqlzoo.net/wiki/SELECT_from_Nobel_Tutorial#Recent_Peace_Prizes"><span class="tocnumber">5</span> <span class="toctext">Recent Peace Prizes</span></a></li>
+<li class="toclevel-1 tocsection-5"><a href="https://sqlzoo.net/wiki/SELECT_from_Nobel_Tutorial#Literature_in_the_1980&#39;s"><span class="tocnumber">6</span> <span class="toctext">Literature in the 1980's</span></a></li>
+<li class="toclevel-1 tocsection-6"><a href="https://sqlzoo.net/wiki/SELECT_from_Nobel_Tutorial#Only_Presidents"><span class="tocnumber">7</span> <span class="toctext">Only Presidents</span></a></li>
+<li class="toclevel-1 tocsection-7"><a href="https://sqlzoo.net/wiki/SELECT_from_Nobel_Tutorial#John"><span class="tocnumber">8</span> <span class="toctext">John</span></a></li>
+<li class="toclevel-1 tocsection-8"><a href="https://sqlzoo.net/wiki/SELECT_from_Nobel_Tutorial#Chemistry_and_Physics_from_different_years"><span class="tocnumber">9</span> <span class="toctext">Chemistry and Physics from different years</span></a></li>
+<li class="toclevel-1 tocsection-9"><a href="https://sqlzoo.net/wiki/SELECT_from_Nobel_Tutorial#Exclude_Chemists_and_Medics"><span class="tocnumber">10</span> <span class="toctext">Exclude Chemists and Medics</span></a></li>
+<li class="toclevel-1 tocsection-10"><a href="https://sqlzoo.net/wiki/SELECT_from_Nobel_Tutorial#Early_Medicine,_Late_Literature"><span class="tocnumber">11</span> <span class="toctext">Early Medicine, Late Literature</span></a></li>
+<li class="toclevel-1 tocsection-11"><a href="https://sqlzoo.net/wiki/SELECT_from_Nobel_Tutorial#Harder_Questions"><span class="tocnumber">12</span> <span class="toctext">Harder Questions</span></a></li>
+<li class="toclevel-1 tocsection-12"><a href="https://sqlzoo.net/wiki/SELECT_from_Nobel_Tutorial#Umlaut"><span class="tocnumber">13</span> <span class="toctext">Umlaut</span></a></li>
+<li class="toclevel-1 tocsection-13"><a href="https://sqlzoo.net/wiki/SELECT_from_Nobel_Tutorial#Apostrophe"><span class="tocnumber">14</span> <span class="toctext">Apostrophe</span></a></li>
+<li class="toclevel-1 tocsection-14"><a href="https://sqlzoo.net/wiki/SELECT_from_Nobel_Tutorial#Knights_of_the_realm"><span class="tocnumber">15</span> <span class="toctext">Knights of the realm</span></a></li>
+<li class="toclevel-1 tocsection-15"><a href="https://sqlzoo.net/wiki/SELECT_from_Nobel_Tutorial#Chemistry_and_Physics_last"><span class="tocnumber">16</span> <span class="toctext">Chemistry and Physics last</span></a></li>
+</ul>
+</div>
+
+<h2><span class="mw-headline" id="nobel_Nobel_Laureates"><code>nobel</code> Nobel Laureates</span></h2>
+  <p>We continue practicing simple SQL queries on a single table.</p>
+  <p>This tutorial is concerned with a table of Nobel prize winners:
+  </p>
+  <pre style="width:20em;">nobel(yr, subject, winner)</pre>
+<p>Using the <code>SELECT</code> statement.</p>
+<h2><span class="id">1. </span><span class="mw-headline" id="Winners_from_1950">Winners from 1950</span></h2>
+<div class="qu zood" data-qnumber="1" data-qid="1">
+<p>Change the query shown so that it displays Nobel prizes for 1950. 
+</p>
+<div class="def mw-highlight mw-highlight-lang-sql mw-content-ltr" dir="ltr"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">yr</span><span class="p">,</span><span class="w"> </span><span class="n">subject</span><span class="p">,</span><span class="w"> </span><span class="n">winner</span>
+<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">nobel</span>
+<span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">yr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1960</span>
+</pre></div><div name="frm__1" id="frm__1" class="frm"><span class="quf"><textarea spellcheck="false" rows="6" cols="47" class="sql" id="txtar_1">SELECT yr, subject, winner
+  FROM nobel
+ WHERE yr = 1960
+</textarea><button class="submitSQL">Submit SQL</button><button class="reset">restore default</button></span></div><div class="res">result</div>
+<div class="ans mw-highlight mw-highlight-lang-sql mw-content-ltr" dir="ltr"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">yr</span><span class="p">,</span><span class="w"> </span><span class="n">subject</span><span class="p">,</span><span class="w"> </span><span class="n">winner</span>
+<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">nobel</span>
+<span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">yr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1950</span>
+</pre></div>
+</div>
+<h2><span class="id">2. </span><span class="mw-headline" id="1962_Literature">1962 Literature</span></h2>
+<div class="qu zood" data-qnumber="2" data-qid="2">
+<p>Show who won the 1962 prize for literature. 
+</p>
+<div class="def mw-highlight mw-highlight-lang-sql mw-content-ltr" dir="ltr"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">winner</span>
+<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">nobel</span>
+<span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">yr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1960</span>
+<span class="w">   </span><span class="k">AND</span><span class="w"> </span><span class="n">subject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Physics'</span>
+</pre></div><div name="frm__2" id="frm__2" class="frm"><span class="quf"><textarea spellcheck="false" rows="7" cols="47" class="sql" id="txtar_2">SELECT winner
+  FROM nobel
+ WHERE yr = 1960
+   AND subject = 'Physics'
+</textarea><button class="submitSQL">Submit SQL</button><button class="reset">restore default</button></span></div><div class="res">result</div>
+<div class="ans mw-highlight mw-highlight-lang-sql mw-content-ltr" dir="ltr"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">winner</span>
+<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">nobel</span>
+<span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">yr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1962</span>
+<span class="w">   </span><span class="k">AND</span><span class="w"> </span><span class="n">subject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Literature'</span>
+</pre></div>
+</div>
+<h2><span class="id">3. </span><span class="mw-headline" id="Albert_Einstein">Albert Einstein</span></h2>
+<div class="qu zood" data-qnumber="3" data-qid="3">
+<p>Show the year and subject that won 'Albert Einstein' his prize.  
+</p>
+<div class="def mw-highlight mw-highlight-lang-sql mw-content-ltr" dir="ltr"></div><div name="frm__3" id="frm__3" class="frm"><span class="quf"><textarea spellcheck="false" rows="6" cols="47" class="sql" id="txtar_3"></textarea><button class="submitSQL">Submit SQL</button><button class="reset">restore default</button></span></div><div class="res">result</div>
+<div class="ans mw-highlight mw-highlight-lang-sql mw-content-ltr" dir="ltr"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">yr</span><span class="p">,</span><span class="w"> </span><span class="n">subject</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">nobel</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">winner</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Albert Einstein'</span>
+</pre></div>
+</div>
+<h2><div class="qcorrect qcorrAni" title="You have answered this question correctly."></div><span class="id">4. </span><span class="mw-headline" id="Recent_Peace_Prizes">Recent Peace Prizes</span></h2>
+<div class="qu zood" data-qnumber="4" data-qid="4">
+<p>Give the name of the 'Peace' winners since the year 2000, including 2000.  
+</p>
+<div class="def mw-highlight mw-highlight-lang-sql mw-content-ltr" dir="ltr"></div><div name="frm__4" id="frm__4" class="frm"><span class="quf"><textarea spellcheck="false" rows="7" cols="47" class="sql" id="txtar_4" data-first-focus="1783757028868"></textarea><button class="submitSQL">Submit SQL</button><button class="reset">restore default</button></span></div><div class="res"><h1>Correct answer</h1><table class="sqlmine"><tr><th>winner</th></tr><tr><td>Kim Dae-jung</td></tr><tr><td>Kofi Annan</td></tr><tr><td>United Nations</td></tr><tr><td>Jimmy Carter</td></tr><tr><td>Shirin Ebadi</td></tr><tr><td>Wangari Maathai</td></tr><tr><td>International Atomic Energy Agency</td></tr><tr><td>Mohamed ElBaradei</td></tr><tr><td>Grameen Bank</td></tr><tr><td>Muhammad Yunus</td></tr><tr><td>Al Gore</td></tr><tr><td>Intergovernmental Panel on Climate Change</td></tr><tr><td>Martti Ahtisaari</td></tr><tr><td>Barack Obama</td></tr><tr><td>Liu Xiaobo</td></tr><tr><td>Ellen Johnson Sirleaf</td></tr><tr><td>Leymah Gbowee</td></tr><tr><td>Tawakkol Karman</td></tr><tr><td>European Union</td></tr><tr><td>Organisation for the Prohibition of Chemical Weapons</td></tr><tr><td>Kailash Satyarthi</td></tr><tr><td>Malala Yousafzai</td></tr><tr><td>National Dialogue Quartet</td></tr><tr><td>Juan Manuel Santos</td></tr><tr><td>International Campaign to Abolish Nuclear Weapons</td></tr><tr><td>Denis Mukwege</td></tr><tr><td>Nadia Murad</td></tr><tr><td>Abiy Ahmed Ali</td></tr><tr><td>World Food Programme</td></tr><tr><td>Dmitry Muratov</td></tr><tr><td>Maria Ressa</td></tr><tr><td>Ales Bialiatski</td></tr><tr><td>Center for Civil Liberties</td></tr><tr><td>Memorial</td></tr><tr><td>Narges Mohammadi</td></tr></table></div>
+<div class="ans mw-highlight mw-highlight-lang-sql mw-content-ltr" dir="ltr"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">winner</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">nobel</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">subject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Peace'</span>
+<span class="k">AND</span><span class="w"> </span><span class="n">yr</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">2000</span>
+</pre></div>
+</div>
+<h2><div class="qcorrect qcorrAni" title="You have answered this question correctly."></div><span class="id">5. </span><span id="Literature_in_the_1980.27s"></span><span class="mw-headline" id="Literature_in_the_1980&#39;s">Literature in the 1980's</span></h2>
+<div class="qu zood" data-qnumber="5" data-qid="5">
+<p>Show all details (<b>yr</b>, <b>subject</b>, <b>winner</b>) of the literature prize winners for 1980 to 1989 inclusive.  
+</p>
+<div class="def mw-highlight mw-highlight-lang-sql mw-content-ltr" dir="ltr"></div><div name="frm__5" id="frm__5" class="frm"><span class="quf"><textarea spellcheck="false" rows="7" cols="47" class="sql" id="txtar_5" data-first-focus="1783757109696"></textarea><button class="submitSQL">Submit SQL</button><button class="reset">restore default</button></span></div><div class="res"><h1>Correct answer</h1><table class="sqlmine"><tr><th>yr</th><th>subject</th><th>winner</th></tr><tr><td class="r">1980</td><td>literature</td><td>Czes?aw Mi?osz</td></tr><tr><td class="r">1981</td><td>literature</td><td>Elias Canetti</td></tr><tr><td class="r">1982</td><td>literature</td><td>Gabriel García Márquez</td></tr><tr><td class="r">1983</td><td>literature</td><td>William Golding</td></tr><tr><td class="r">1984</td><td>literature</td><td>Jaroslav Seifert</td></tr><tr><td class="r">1985</td><td>literature</td><td>Claude Simon</td></tr><tr><td class="r">1986</td><td>literature</td><td>Wole Soyinka</td></tr><tr><td class="r">1987</td><td>literature</td><td>Joseph Brodsky</td></tr><tr><td class="r">1988</td><td>literature</td><td>Naguib Mahfouz</td></tr><tr><td class="r">1989</td><td>literature</td><td>Camilo José Cela</td></tr></table></div>
+<div class="ans mw-highlight mw-highlight-lang-sql mw-content-ltr" dir="ltr"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">yr</span><span class="p">,</span><span class="n">subject</span><span class="p">,</span><span class="n">winner</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">nobel</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">subject</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'Literature'</span>
+<span class="k">AND</span><span class="w"> </span><span class="n">yr</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="mi">1980</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="mi">1989</span>
+</pre></div>
+</div>
+<h2><div class="qcorrect qcorrAni" title="You have answered this question correctly."></div><span class="id">6. </span><span class="mw-headline" id="Only_Presidents">Only Presidents</span></h2>
+<div class="qu zood" data-qnumber="6" data-qid="6">
+<p>Show all details of the presidential winners:
+</p>
+<ul><li>Theodore Roosevelt</li>
+<li>Thomas Woodrow Wilson</li>
+<li>Jimmy Carter</li>
+<li>Barack Obama</li></ul>
+<div class="def mw-highlight mw-highlight-lang-sql mw-content-ltr" dir="ltr"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">nobel</span>
+<span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">yr</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1970</span>
+<span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">subject</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">'Cookery'</span><span class="p">,</span>
+<span class="w">                  </span><span class="s1">'Chemistry'</span><span class="p">,</span>
+<span class="w">                  </span><span class="s1">'Literature'</span><span class="p">)</span>
+</pre></div><div name="frm__6" id="frm__6" class="frm"><span class="quf"><textarea spellcheck="false" rows="8" cols="47" class="sql" id="txtar_6" data-first-focus="1783757377662">SELECT * FROM nobel
+ WHERE yr = 1970
+  AND subject IN ('Cookery',
+                  'Chemistry',
+                  'Literature')
+</textarea><button class="submitSQL">Submit SQL</button><button class="reset">restore default</button></span></div><div class="res"><h1>Correct answer</h1><table class="sqlmine"><tr><th>yr</th><th>subject</th><th>winner</th></tr><tr><td class="r">1906</td><td>peace</td><td>Theodore Roosevelt</td></tr><tr><td class="r">2002</td><td>peace</td><td>Jimmy Carter</td></tr><tr><td class="r">2009</td><td>peace</td><td>Barack Obama</td></tr></table></div>
+<div class="ans mw-highlight mw-highlight-lang-sql mw-content-ltr" dir="ltr"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">nobel</span>
+<span class="w"> </span><span class="k">WHERE</span><span class="w">  </span><span class="n">winner</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">'Theodore Roosevelt'</span><span class="p">,</span>
+<span class="w">  </span><span class="s1">'Thomas Woodrow Wilson'</span><span class="p">,</span>
+<span class="w">  </span><span class="s1">'Jimmy Carter'</span><span class="p">,</span>
+<span class="w">  </span><span class="s1">'Barack Obama'</span><span class="p">)</span>
+</pre></div>
+</div>
+<h2><div class="qcorrect qcorrAni" title="You have answered this question correctly."></div><span class="id">7. </span><span class="mw-headline" id="John">John</span></h2>
+<div class="qu zood" data-qnumber="7" data-qid="7">
+<p>Show the winners with first name John 
+</p>
+<div class="def mw-highlight mw-highlight-lang-sql mw-content-ltr" dir="ltr"></div><div name="frm__7" id="frm__7" class="frm"><span class="quf"><textarea spellcheck="false" rows="6" cols="47" class="sql" id="txtar_7" data-first-focus="1783757774855"></textarea><button class="submitSQL">Submit SQL</button><button class="reset">restore default</button></span></div><div class="res"><h1>Correct answer</h1><table class="sqlmine"><tr><th>winner</th></tr><tr><td>John Macleod</td></tr><tr><td>John Galsworthy</td></tr><tr><td>John Northrop</td></tr><tr><td>John Mott</td></tr><tr><td>John Cockcroft</td></tr><tr><td>John Enders</td></tr><tr><td>John Bardeen</td></tr><tr><td>John Kendrew</td></tr><tr><td>John Steinbeck</td></tr><tr><td>John Bardeen</td></tr><tr><td>John Cornforth</td></tr><tr><td>John Van Vleck</td></tr><tr><td>John Vane</td></tr><tr><td>John Polanyi</td></tr><tr><td>John Walker</td></tr><tr><td>John Pople</td></tr><tr><td>John Hume</td></tr><tr><td>John Fenn</td></tr><tr><td>John Sulston</td></tr><tr><td>John Hall</td></tr><tr><td>John Mather</td></tr><tr><td>John O'Keefe</td></tr><tr><td>John Goodenough</td></tr><tr><td>John Clauser</td></tr></table></div>
+<div class="ans mw-highlight mw-highlight-lang-sql mw-content-ltr" dir="ltr"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">winner</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">nobel</span>
+<span class="w">  </span><span class="k">WHERE</span><span class="w"> </span><span class="n">winner</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">'John&nbsp;%'</span>
+</pre></div>
+</div>
+<h2><div class="qcorrect qcorrAni" title="You have answered this question correctly."></div><span class="id">8. </span><span class="mw-headline" id="Chemistry_and_Physics_from_different_years">Chemistry and Physics from different years</span></h2>
+<div class="qu zood" data-qnumber="8" data-qid="8">
+<p class="imper">Show the year, subject, and name of physics winners for 1980 together with the chemistry winners for 1984.</p>
+<div class="def mw-highlight mw-highlight-lang-sql mw-content-ltr" dir="ltr"></div><div name="frm__8" id="frm__8" class="frm"><span class="quf"><textarea spellcheck="false" rows="7" cols="47" class="sql" id="txtar_8" data-first-focus="1783757839867"></textarea><button class="submitSQL">Submit SQL</button><button class="reset">restore default</button></span></div><div class="res"><h1>Correct answer</h1><table class="sqlmine"><tr><th>yr</th><th>subject</th><th>winner</th></tr><tr><td class="r">1980</td><td>physics</td><td>James Cronin</td></tr><tr><td class="r">1980</td><td>physics</td><td>Val Fitch</td></tr><tr><td class="r">1984</td><td>chemistry</td><td>Bruce Merrifield</td></tr></table></div>
+<div class="ans mw-highlight mw-highlight-lang-sql mw-content-ltr" dir="ltr"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">nobel</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="p">(</span><span class="n">subject</span><span class="o">=</span><span class="s1">'Physics'</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">yr</span><span class="o">=</span><span class="mi">1980</span><span class="p">)</span><span class="w"> </span><span class="k">OR</span>
+<span class="w">      </span><span class="p">(</span><span class="n">subject</span><span class="o">=</span><span class="s1">'Chemistry'</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">yr</span><span class="o">=</span><span class="mi">1984</span><span class="p">)</span>
+</pre></div>
+</div>
+<h2><div class="qcorrect qcorrAni" title="You have answered this question correctly."></div><span class="id">9. </span><span class="mw-headline" id="Exclude_Chemists_and_Medics">Exclude Chemists and Medics</span></h2>
+<div class="qu zood" data-qnumber="9" data-qid="9">
+<p class="imper">Show the year, subject, and name of winners for 1980 excluding chemistry and medicine</p>
+<div class="def mw-highlight mw-highlight-lang-sql mw-content-ltr" dir="ltr"></div><div name="frm__9" id="frm__9" class="frm"><span class="quf"><textarea spellcheck="false" rows="7" cols="47" class="sql" id="txtar_9" data-first-focus="1783758166960"></textarea><button class="submitSQL">Submit SQL</button><button class="reset">restore default</button></span></div><div class="res"><h1>Correct answer</h1><table class="sqlmine"><tr><th>yr</th><th>subject</th><th>winner</th></tr><tr><td class="r">1980</td><td>literature</td><td>Czes?aw Mi?osz</td></tr><tr><td class="r">1980</td><td>peace</td><td>Adolfo Pérez Esquivel</td></tr><tr><td class="r">1980</td><td>physics</td><td>James Cronin</td></tr><tr><td class="r">1980</td><td>physics</td><td>Val Fitch</td></tr></table></div>
+<div class="ans mw-highlight mw-highlight-lang-sql mw-content-ltr" dir="ltr"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">nobel</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">yr</span><span class="o">=</span><span class="mi">1980</span><span class="w"> </span><span class="k">AND</span>
+<span class="w">  </span><span class="n">subject</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">'Chemistry'</span><span class="p">,</span><span class="s1">'Medicine'</span><span class="p">)</span>
+</pre></div>
+</div>
+<h2><span class="id">10. </span><span id="Early_Medicine.2C_Late_Literature"></span><span class="mw-headline" id="Early_Medicine,_Late_Literature">Early Medicine, Late Literature</span></h2>
+<div class="qu zood" data-qnumber="10" data-qid="10">
+<p>Show year, subject, and name of people who won a 'Medicine' prize in an early year (before 1910, not including 1910) together with winners of a 'Literature' prize in a later year (after 2004, including 2004)
+</p>
+<div class="def mw-highlight mw-highlight-lang-sql mw-content-ltr" dir="ltr"></div><div name="frm__10" id="frm__10" class="frm"><span class="quf"><textarea spellcheck="false" rows="7" cols="47" class="sql" id="txtar_10"></textarea><button class="submitSQL">Submit SQL</button><button class="reset">restore default</button></span></div><div class="res">result</div>
+<div class="ans mw-highlight mw-highlight-lang-sql mw-content-ltr" dir="ltr"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">nobel</span><span class="w"> </span>
+<span class="k">WHERE</span><span class="w"> </span><span class="p">(</span><span class="n">subject</span><span class="o">=</span><span class="s1">'Medicine'</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">yr</span><span class="w"> </span><span class="o">&lt;</span><span class="mi">1910</span><span class="p">)</span><span class="w"> </span><span class="k">OR</span>
+<span class="w">      </span><span class="p">(</span><span class="n">subject</span><span class="o">=</span><span class="s1">'Literature'</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">yr</span><span class="o">&gt;=</span><span class="mi">2004</span><span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<p class="mw-empty-elt"></p><div class="quizlink"><a href="https://sqlzoo.net/wiki/Nobel_Quiz" title="Nobel Quiz">Nobel Quiz</a></div><p class="mw-empty-elt"></p>
+</div>
+<h2><span class="mw-headline" id="Harder_Questions">Harder Questions</span></h2>
+<h2><span class="id">11. </span><span class="mw-headline" id="Umlaut">Umlaut</span></h2>
+<div class="qu zood" data-qnumber="11" data-qid="11">
+<p>Find all details of the prize won by PETER GRÜNBERG
+</p>
+<div class="tease">Non-ASCII characters</div><div class="hint hide" title="Non-ASCII characters">The u in his name has an <b>umlaut</b>. You may find this link useful <a rel="nofollow" class="external free" href="https://en.wikipedia.org/wiki/%C3%9C#Keyboarding">https://en.wikipedia.org/wiki/%C3%9C#Keyboarding</a></div>
+<div class="def mw-highlight mw-highlight-lang-sql mw-content-ltr" dir="ltr"></div><div name="frm__11" id="frm__11" class="frm"><span class="quf"><textarea spellcheck="false" rows="6" cols="47" class="sql" id="txtar_11"></textarea><button class="submitSQL">Submit SQL</button><button class="reset">restore default</button></span></div><div class="res">result</div>
+<div class="ans mw-highlight mw-highlight-lang-sql mw-content-ltr" dir="ltr"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">nobel</span><span class="w"> </span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">winner</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="s1">'Peter Grünberg'</span><span class="p">)</span>
+</pre></div>
+</div>
+<h2><span class="id">12. </span><span class="mw-headline" id="Apostrophe">Apostrophe</span></h2>
+<div class="qu zood" data-qnumber="12" data-qid="12">
+<p>Find all details of the prize won by EUGENE O'NEILL
+</p>
+<div class="tease">Escaping single quotes</div><div class="hint hide" title="Escaping single quotes">You can't put a single quote in a quote string directly. You can use two single quotes within a quoted string.</div>
+<div class="def mw-highlight mw-highlight-lang-sql mw-content-ltr" dir="ltr"></div><div name="frm__12" id="frm__12" class="frm"><span class="quf"><textarea spellcheck="false" rows="6" cols="47" class="sql" id="txtar_12"></textarea><button class="submitSQL">Submit SQL</button><button class="reset">restore default</button></span></div><div class="res">result</div>
+<div class="ans mw-highlight mw-highlight-lang-sql mw-content-ltr" dir="ltr"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">nobel</span><span class="w"> </span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">winner</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="s1">'Eugene O''Neill'</span><span class="p">)</span>
+</pre></div>
+</div>
+<h2><span class="id">13. </span><span class="mw-headline" id="Knights_of_the_realm">Knights of the realm</span></h2>
+<div class="qu zood" data-qnumber="13" data-qid="13"><span class="param respectorder"></span>
+<p>Knights in order
+</p>
+<p class="imper">List the winners, year and subject where the winner starts with <b>Sir</b>. Show the the most recent first, then by name order.</p>
+<div class="def mw-highlight mw-highlight-lang-sql mw-content-ltr" dir="ltr"></div><div name="frm__13" id="frm__13" class="frm"><span class="quf"><textarea spellcheck="false" rows="7" cols="47" class="sql" id="txtar_13"></textarea><button class="submitSQL">Submit SQL</button><button class="reset">restore default</button></span></div><div class="res">result</div>
+<div class="ans mw-highlight mw-highlight-lang-sql mw-content-ltr" dir="ltr"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">winner</span><span class="p">,</span><span class="w"> </span><span class="n">yr</span><span class="p">,</span><span class="w"> </span><span class="n">subject</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">nobel</span><span class="w"> </span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">winner</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">'Sir%'</span>
+<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">yr</span><span class="w"> </span><span class="k">DESC</span><span class="p">,</span><span class="w"> </span><span class="n">winner</span>
+</pre></div>
+</div>
+<h2><span class="id">14. </span><span class="mw-headline" id="Chemistry_and_Physics_last">Chemistry and Physics last</span></h2>
+<div class="qu zood" data-qnumber="14" data-qid="14"><span class="param respectorder"></span>
+<p>The expression <b>subject IN ('chemistry','physics')</b> can be used as a value - it will be <b>0</b> or <b>1</b>.
+</p>
+<p class="imper">Show the 1984 winners and subject ordered by subject and winner name; but list chemistry and physics last.</p>
+<div class="def mw-highlight mw-highlight-lang-sql mw-content-ltr" dir="ltr"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">winner</span><span class="p">,</span><span class="w"> </span><span class="n">subject</span><span class="p">,</span><span class="w"> </span><span class="n">subject</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">'Physics'</span><span class="p">,</span><span class="s1">'Chemistry'</span><span class="p">)</span>
+<span class="w">  </span><span class="k">FROM</span><span class="w"> </span><span class="n">nobel</span>
+<span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">yr</span><span class="o">=</span><span class="mi">1984</span>
+<span class="w"> </span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">subject</span><span class="p">,</span><span class="n">winner</span>
+</pre></div><div name="frm__14" id="frm__14" class="frm"><span class="quf"><textarea spellcheck="false" rows="9" cols="67" class="sql" id="txtar_14">SELECT winner, subject, subject IN ('Physics','Chemistry')
+  FROM nobel
+ WHERE yr=1984
+ ORDER BY subject,winner
+</textarea><button class="submitSQL">Submit SQL</button><button class="reset">restore default</button></span></div><div class="res">result</div>
+<div class="ans mw-highlight mw-highlight-lang-sql mw-content-ltr" dir="ltr"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="n">winner</span><span class="p">,</span><span class="w"> </span><span class="n">subject</span>
+<span class="k">from</span><span class="w"> </span><span class="n">nobel</span>
+<span class="k">where</span><span class="w"> </span><span class="n">yr</span><span class="o">=</span><span class="mi">1984</span><span class="w"> </span>
+<span class="k">order</span><span class="w"> </span><span class="k">by</span>
+<span class="w">  </span><span class="k">CASE</span><span class="w"> </span><span class="k">WHEN</span><span class="w"> </span><span class="n">subject</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="p">(</span><span class="s1">'Physics'</span><span class="p">,</span><span class="s1">'Chemistry'</span><span class="p">)</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="k">ELSE</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="k">END</span><span class="p">,</span>
+<span class="w">  </span><span class="n">subject</span><span class="p">,</span><span class="n">winner</span>
+</pre></div>
+<div class="video" data-src="/video/Nobel.mp4" data-poster="/video/Nobel.jpg"><video controls="true" width="100%" poster="/video/Nobel.jpg"><source src="/video/Nobel.mp4"></video></div>
+</div>
+<!-- 
+NewPP limit report
+Cached time: 20260710031332
+Cache expiry: 86400
+Reduced expiry: false
+Complications: [show‐toc]
+CPU time usage: 0.132 seconds
+Real time usage: 0.154 seconds
+Preprocessor visited node count: 5434/1000000
+Post‐expand include size: 30565/2097152 bytes
+Template argument size: 8989/2097152 bytes
+Highest expansion depth: 18/100
+Expensive parser function count: 95/100
+Unstrip recursion depth: 0/20
+Unstrip post‐expand size: 16558/5000000 bytes
+-->
+<!--
+Transclusion expansion time report (%,ms,calls,template)
+100.00%  124.117      1 Template:Languages
+100.00%  124.117      1 -total
+ 78.29%   97.175    149 Template:Languages/Lang
+ 70.69%   87.742      1 Template:Nmbox
+ 32.08%   39.819    156 Template:Translatable
+ 17.80%   22.094    152 Template:Pagelang
+  9.19%   11.402      1 Template:Ll
+  5.24%    6.504      1 Template:Languages/Title
+  4.08%    5.069      1 Template:LangSwitch
+  1.64%    2.031      1 Template:Dir
+-->
+
+<!-- Saved in parser cache with key sqlzoo_wiki:pcache:idhash:20-0!canonical and timestamp 20260710031332 and revision id 40837. Rendering was triggered because: page-view
+ -->
+</div></div><div class="printfooter">
+Retrieved from "<a dir="ltr" href="https://sqlzoo.net/w/index.php?title=SELECT_from_Nobel_Tutorial&amp;oldid=40837">https://sqlzoo.net/w/index.php?title=SELECT_from_Nobel_Tutorial&amp;oldid=40837</a>"</div>
+<div class="visualClear"></div></div></div></div><div id="coddyhuge" class="click-count"><a id="coddy-bot" href="https://link.coddy.tech/bvMS?af_web_dp=https%3A%2F%2Fcoddy.tech%2Flanding%2Fsql&amp;af_sub1=sqlzoo.net"><img src="./SELECT from Nobel Tutorial - SQLZoo_files/coddy-huge.png" style="width:100%;"></a></div></div><div id="content-bottom-stuff"><div id="catlinks" class="catlinks" data-mw="interface"><div id="mw-normal-catlinks" class="mw-normal-catlinks"><a href="https://sqlzoo.net/wiki/Special:Categories" title="Special:Categories">Categories</a>: <ul><li><a href="https://sqlzoo.net/w/index.php?title=Category:Pages_using_deprecated_source_tags&amp;action=edit&amp;redlink=1" class="new" title="Category:Pages using deprecated source tags (page does not exist)">Pages using deprecated source tags</a></li><li><a href="https://sqlzoo.net/w/index.php?title=Category:Languages_pages&amp;action=edit&amp;redlink=1" class="new" title="Category:Languages pages (page does not exist)">Languages pages</a></li></ul></div></div></div></div><div id="mw-site-navigation"><div id="p-logo" class="mw-portlet" role="banner"><a class="mw-wiki-logo timeless-logo" href="https://sqlzoo.net/wiki/SQL_Tutorial" title="Visit the main page"><img src="./SELECT from Nobel Tutorial - SQLZoo_files/malones.svg"></a></div><div id="site-navigation" class="sidebar-chunk"><h2><span>Navigation</span></h2><div class="sidebar-inner"><div role="navigation" class="mw-portlet" id="p-" aria-labelledby="p--label"><h3 id="p--label" lang="en-GB" dir="ltr"></h3><div class="mw-portlet-body"><ul lang="en-GB" dir="ltr"><li id="n-SELECT-basics" class="mw-list-item"><a href="https://sqlzoo.net/wiki/SELECT_basics"><span>SELECT basics</span></a><progress max="1" value="0"></progress></li><li id="n-quiz" class="mw-list-item"><a href="https://sqlzoo.net/wiki/SELECT_Quiz"><span>quiz</span></a><progress max="1" value="0"></progress></li><li id="n-SELECT-from-world" class="mw-list-item" title="you have completed 13 of 13"><a href="https://sqlzoo.net/wiki/SELECT_from_WORLD_Tutorial"><span>SELECT from world</span></a><progress max="13" value="13"></progress></li><li id="n-quiz" class="mw-list-item"><a href="https://sqlzoo.net/wiki/BBC_QUIZ"><span>quiz</span></a><progress max="1" value="0"></progress></li><li id="n-SELECT-from-nobel" class="mw-list-item" title="you have completed 9 of 14"><a href="https://sqlzoo.net/wiki/SELECT_from_Nobel_Tutorial"><span>SELECT from nobel</span></a><progress max="14" value="9"></progress></li><li id="n-quiz" class="mw-list-item"><a href="https://sqlzoo.net/wiki/Nobel_Quiz"><span>quiz</span></a><progress max="1" value="0"></progress></li><li id="n-SELECT-in-SELECT" class="mw-list-item"><a href="https://sqlzoo.net/wiki/SELECT_within_SELECT_Tutorial"><span>SELECT in SELECT</span></a><progress max="1" value="0"></progress></li><li id="n-quiz" class="mw-list-item"><a href="https://sqlzoo.net/wiki/Nested_SELECT_Quiz"><span>quiz</span></a><progress max="1" value="0"></progress></li><li id="n-SUM-and-COUNT" class="mw-list-item"><a href="https://sqlzoo.net/wiki/SUM_and_COUNT"><span>SUM and COUNT</span></a><progress max="1" value="0"></progress></li><li id="n-quiz" class="mw-list-item"><a href="https://sqlzoo.net/wiki/SUM_and_COUNT_Quiz"><span>quiz</span></a><progress max="1" value="0"></progress></li><li id="n-JOIN" class="mw-list-item"><a href="https://sqlzoo.net/wiki/The_JOIN_operation"><span>JOIN</span></a><progress max="1" value="0"></progress></li><li id="n-quiz" class="mw-list-item"><a href="https://sqlzoo.net/wiki/JOIN_Quiz"><span>quiz</span></a><progress max="1" value="0"></progress></li><li id="n-More-JOIN" class="mw-list-item"><a href="https://sqlzoo.net/wiki/More_JOIN_operations"><span>More JOIN</span></a><progress max="1" value="0"></progress></li><li id="n-quiz" class="mw-list-item"><a href="https://sqlzoo.net/wiki/JOIN_Quiz_2"><span>quiz</span></a><progress max="1" value="0"></progress></li><li id="n-Using-NULL" class="mw-list-item"><a href="https://sqlzoo.net/wiki/Using_Null"><span>Using NULL</span></a><progress max="1" value="0"></progress></li><li id="n-quiz" class="mw-list-item"><a href="https://sqlzoo.net/wiki/Using_Null_Quiz"><span>quiz</span></a><progress max="1" value="0"></progress></li><li id="n-Self-JOIN" class="mw-list-item"><a href="https://sqlzoo.net/wiki/Self_join"><span>Self JOIN</span></a><progress max="1" value="0"></progress></li><li id="n-quiz" class="mw-list-item"><a href="https://sqlzoo.net/wiki/Self_join_Quiz"><span>quiz</span></a><progress max="1" value="0"></progress></li></ul></div></div><div role="navigation" class="mw-portlet" id="p-Reference" aria-labelledby="p-Reference-label"><h3 id="p-Reference-label" lang="en-GB" dir="ltr">Reference</h3><div class="mw-portlet-body"><ul lang="en-GB" dir="ltr"><li id="n-NoSQL-zoo" class="mw-list-item"><a href="https://nosqlzoo.net/" rel="nofollow"><span>NoSQL zoo</span></a></li><li id="n-SELECT" class="mw-list-item"><a href="https://sqlzoo.net/wiki/SELECT"><span>SELECT</span></a></li><li id="n-Functions" class="mw-list-item"><a href="https://sqlzoo.net/wiki/FUNCTIONS"><span>Functions</span></a></li><li id="n-SELECT-..-WHERE" class="mw-list-item"><a href="https://sqlzoo.net/wiki/SELECT_.._WHERE"><span>SELECT .. WHERE</span></a></li><li id="n-SELECT-..-GROUP-BY" class="mw-list-item"><a href="https://sqlzoo.net/wiki/SELECT_.._GROUP_BY"><span>SELECT .. GROUP BY</span></a></li><li id="n-SELECT-..-JOIN" class="mw-list-item"><a href="https://sqlzoo.net/wiki/SELECT_.._JOIN"><span>SELECT .. JOIN</span></a></li><li id="n-SELECT-..-SELECT" class="mw-list-item"><a href="https://sqlzoo.net/wiki/SELECT_.._SELECT"><span>SELECT .. SELECT</span></a></li><li id="n-INSERT-..-VALUES" class="mw-list-item"><a href="https://sqlzoo.net/wiki/INSERT_.._VALUES"><span>INSERT .. VALUES</span></a></li><li id="n-INSERT-..-SELECT" class="mw-list-item"><a href="https://sqlzoo.net/wiki/INSERT_.._SELECT"><span>INSERT .. SELECT</span></a></li><li id="n-UPDATE" class="mw-list-item"><a href="https://sqlzoo.net/wiki/UPDATE"><span>UPDATE</span></a></li><li id="n-DELETE" class="mw-list-item"><a href="https://sqlzoo.net/wiki/DELETE"><span>DELETE</span></a></li><li id="n-CREATE-TABLE" class="mw-list-item"><a href="https://sqlzoo.net/wiki/CREATE_TABLE"><span>CREATE TABLE</span></a></li><li id="n-CREATE-VIEW" class="mw-list-item"><a href="https://sqlzoo.net/wiki/CREATE_VIEW"><span>CREATE VIEW</span></a></li><li id="n-CREATE-INDEX" class="mw-list-item"><a href="https://sqlzoo.net/wiki/CREATE_INDEX"><span>CREATE INDEX</span></a></li><li id="n-DROP" class="mw-list-item"><a href="https://sqlzoo.net/wiki/DROP"><span>DROP</span></a></li><li id="n-ALTER" class="mw-list-item"><a href="https://sqlzoo.net/wiki/ALTER"><span>ALTER</span></a></li><li id="n-UNION" class="mw-list-item"><a href="https://sqlzoo.net/wiki/UNION"><span>UNION</span></a></li><li id="n-LEFT-JOIN" class="mw-list-item"><a href="https://sqlzoo.net/wiki/LEFT_JOIN"><span>LEFT JOIN</span></a></li><li id="n-NULL" class="mw-list-item"><a href="https://sqlzoo.net/wiki/NULL"><span>NULL</span></a></li></ul></div></div></div></div><div id="site-tools" class="sidebar-chunk"><h2><span>Wiki tools</span></h2><div class="sidebar-inner"><div role="navigation" class="mw-portlet" id="p-tb" aria-labelledby="p-tb-label"><h3 id="p-tb-label" lang="en-GB" dir="ltr">Wiki tools</h3><div class="mw-portlet-body"><ul lang="en-GB" dir="ltr"><li id="t-specialpages" class="mw-list-item"><a href="https://sqlzoo.net/wiki/Special:SpecialPages" title="A list of all special pages [alt-q]" accesskey="q"><span>Special pages</span></a></li></ul></div></div></div></div></div><div id="mw-related-navigation"><div id="page-tools" class="sidebar-chunk"><h2><span>Page tools</span></h2><div class="sidebar-inner"><div role="navigation" class="mw-portlet emptyPortlet" id="p-cactions" title="More options" aria-labelledby="p-cactions-label"><h3 id="p-cactions-label" lang="en-GB" dir="ltr">Page tools</h3><div class="mw-portlet-body"><ul lang="en-GB" dir="ltr"></ul></div></div><div role="navigation" class="mw-portlet emptyPortlet" id="p-userpagetools" aria-labelledby="p-userpagetools-label"><h3 id="p-userpagetools-label" lang="en-GB" dir="ltr">User page tools</h3><div class="mw-portlet-body"><ul lang="en-GB" dir="ltr"></ul></div></div><div role="navigation" class="mw-portlet" id="p-pagemisc" aria-labelledby="p-pagemisc-label"><h3 id="p-pagemisc-label" lang="en-GB" dir="ltr">More</h3><div class="mw-portlet-body"><ul lang="en-GB" dir="ltr"><li id="t-whatlinkshere" class="mw-list-item"><a href="https://sqlzoo.net/wiki/Special:WhatLinksHere/SELECT_from_Nobel_Tutorial" title="A list of all wiki pages that link here [alt-j]" accesskey="j"><span>What links here</span></a></li><li id="t-recentchangeslinked" class="mw-list-item"><a href="https://sqlzoo.net/wiki/Special:RecentChangesLinked/SELECT_from_Nobel_Tutorial" rel="nofollow" title="Recent changes in pages linked from this page [alt-k]" accesskey="k"><span>Related changes</span></a></li><li id="t-print" class="mw-list-item"><a href="javascript:print();" rel="alternate" title="Printable version of this page [alt-p]" accesskey="p"><span>Printable version</span></a></li><li id="t-permalink" class="mw-list-item"><a href="https://sqlzoo.net/w/index.php?title=SELECT_from_Nobel_Tutorial&amp;oldid=40837" title="Permanent link to this revision of this page"><span>Permanent link</span></a></li><li id="t-info" class="mw-list-item"><a href="https://sqlzoo.net/w/index.php?title=SELECT_from_Nobel_Tutorial&amp;action=info" title="More information about this page"><span>Page information</span></a></li><li id="t-pagelog" class="mw-list-item"><a href="https://sqlzoo.net/w/index.php?title=Special:Log&amp;page=SELECT+from+Nobel+Tutorial"><span>Page logs</span></a></li></ul></div></div></div></div><div id="catlinks-sidebar" class="sidebar-chunk"><h2><span>Categories</span></h2><div class="sidebar-inner"><div id="sidebar-normal-catlinks" class="mw-normal-catlinks"><div role="navigation" class="mw-portlet" id="p-normal-catlinks" aria-labelledby="p-normal-catlinks-label"><h3 id="p-normal-catlinks-label" lang="en-GB" dir="ltr">Categories</h3><div class="mw-portlet-body"><ul><li><a href="https://sqlzoo.net/w/index.php?title=Category:Pages_using_deprecated_source_tags&amp;action=edit&amp;redlink=1" class="new" title="Category:Pages using deprecated source tags (page does not exist)">Pages using deprecated source tags</a></li><li><a href="https://sqlzoo.net/w/index.php?title=Category:Languages_pages&amp;action=edit&amp;redlink=1" class="new" title="Category:Languages pages (page does not exist)">Languages pages</a></li></ul></div></div></div></div></div></div><div class="visualClear"></div></div></div><div id="mw-footer-container" class="mw-footer-container ts-container"><div id="mw-footer" class="mw-footer ts-inner" role="contentinfo" lang="en-GB" dir="ltr"><ul id="footer-icons"><li id="footer-poweredbyico" class="footer-icons"><a href="https://www.mediawiki.org/" class="cdx-button cdx-button--fake-button cdx-button--size-large cdx-button--fake-button--enabled"><img src="./SELECT from Nobel Tutorial - SQLZoo_files/poweredby_mediawiki.svg" alt="Powered by MediaWiki" width="88" height="31" loading="lazy"></a></li></ul><div id="footer-list"><ul id="footer-info"><li id="footer-info-lastmod"> This page was last modified on 26 June 2026, at 23:14.</li></ul><ul id="footer-places"><li id="footer-places-privacy"><a href="https://sqlzoo.net/wiki/SQLZoo:Privacy_policy">Privacy policy</a></li><li id="footer-places-about"><a href="https://sqlzoo.net/wiki/SQLZoo:About">About SQLZoo</a></li><li id="footer-places-disclaimers"><a href="https://sqlzoo.net/wiki/SQLZoo:General_disclaimer">Disclaimers</a></li><li id="yourHost">Served by: <span id="hostname">sage</span> at <span id="dob">2026-07-10T23:02<span></span></span></li></ul></div><div class="visualClear"></div></div></div></div><script>(RLQ=window.RLQ||[]).push(function(){mw.config.set({"wgBackendResponseTime":92,"wgPageParseReport":{"limitreport":{"cputime":"0.132","walltime":"0.154","ppvisitednodes":{"value":5434,"limit":1000000},"postexpandincludesize":{"value":30565,"limit":2097152},"templateargumentsize":{"value":8989,"limit":2097152},"expansiondepth":{"value":18,"limit":100},"expensivefunctioncount":{"value":95,"limit":100},"unstrip-depth":{"value":0,"limit":20},"unstrip-size":{"value":16558,"limit":5000000},"timingprofile":["100.00%  124.117      1 Template:Languages","100.00%  124.117      1 -total"," 78.29%   97.175    149 Template:Languages/Lang"," 70.69%   87.742      1 Template:Nmbox"," 32.08%   39.819    156 Template:Translatable"," 17.80%   22.094    152 Template:Pagelang","  9.19%   11.402      1 Template:Ll","  5.24%    6.504      1 Template:Languages/Title","  4.08%    5.069      1 Template:LangSwitch","  1.64%    2.031      1 Template:Dir"]},"cachereport":{"timestamp":"20260710031332","ttl":86400,"transientcontent":false}}});});</script>
+
+<div id="bbai-shadow-wrapper"><template shadowrootmode="open"><style>
+      :host {
+        all: initial !important;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif !important;
+      }
+      * {
+        box-sizing: border-box !important;
+      }
+      .bbai-tooltip {
+        position: fixed !important;
+        z-index: 999999 !important;
+        background: white !important;
+        border-radius: 8px !important;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+        padding: 8px 12px !important;
+        font-size: 13px !important;
+        line-height: 1.4 !important;
+        color: #1a1a1a !important;
+        pointer-events: all !important;
+        cursor: pointer !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+        transform: translateY(4px) !important;
+        transition: all 0.2s ease !important;
+      }
+      .bbai-tooltip.show {
+        opacity: 1 !important;
+        visibility: visible !important;
+        transform: translateY(0) !important;
+      }
+      .bbai-tooltip-content {
+        display: flex !important;
+        align-items: center !important;
+        gap: 4px !important;
+        white-space: nowrap !important;
+      }
+      .bbai-tooltip-content span {
+        font-weight: 500 !important;
+      }
+    </style><div class="bbai-tooltip" style="left: 470px; top: 307px; transform: translateX(-50%);">
+        <div class="bbai-tooltip-content">
+          <svg width="16" height="16" viewBox="0 0 469 469" fill="none" xmlns="http://www.w3.org/2000/svg" shaperendering="geometricPrecision" stroke="currentColor" strokelinecap="round" strokelinejoin="round" strokewidth="1.5">
+            <path d="M237.092 62.3004L266.754 71.4198C267.156 71.5285 267.51 71.765 267.765 72.0934C268.02 72.4218 268.161 72.8243 268.166 73.2399C268.172 73.6555 268.042 74.0616 267.796 74.3967C267.55 74.7318 267.201 74.9777 266.803 75.097L237.141 84.3145C236.84 84.4058 236.566 84.5699 236.344 84.7922C236.121 85.0146 235.957 85.2883 235.866 85.5893L226.747 115.252C226.638 115.653 226.401 116.008 226.073 116.263C225.745 116.517 225.342 116.658 224.926 116.664C224.511 116.669 224.105 116.539 223.77 116.293C223.435 116.047 223.189 115.699 223.069 115.301L213.852 85.6383C213.761 85.3374 213.597 85.0636 213.374 84.8412C213.152 84.6189 212.878 84.4548 212.577 84.3635L182.914 75.2441C182.513 75.1354 182.158 74.8989 181.904 74.5705C181.649 74.2421 181.508 73.8396 181.503 73.424C181.497 73.0084 181.627 72.6023 181.873 72.2672C182.119 71.9321 182.467 71.6863 182.865 71.5669L212.528 62.3494C212.829 62.2582 213.103 62.0941 213.325 61.8717C213.547 61.6494 213.712 61.3756 213.803 61.0747L222.922 31.4121C223.031 31.0109 223.267 30.656 223.596 30.4013C223.924 30.1465 224.327 30.0057 224.742 30.0002C225.158 29.9946 225.564 30.1247 225.899 30.3706C226.234 30.6165 226.48 30.9649 226.599 31.363L235.817 61.0257C235.908 61.3266 236.072 61.6003 236.295 61.8227C236.517 62.0451 236.791 62.2091 237.092 62.3004Z" fill="currentColor"></path>
+            <path d="M155.948 155.848L202.771 168.939C203.449 169.131 204.045 169.539 204.47 170.101C204.895 170.663 205.125 171.348 205.125 172.052C205.125 172.757 204.895 173.442 204.47 174.004C204.045 174.566 203.449 174.974 202.771 175.166L155.899 188.06C155.361 188.209 154.87 188.496 154.475 188.891C154.079 189.286 153.793 189.777 153.644 190.316L140.553 237.138C140.361 237.816 139.953 238.413 139.391 238.838C138.829 239.262 138.144 239.492 137.44 239.492C136.735 239.492 136.05 239.262 135.488 238.838C134.927 238.413 134.519 237.816 134.327 237.138L121.432 190.267C121.283 189.728 120.997 189.237 120.601 188.842C120.206 188.446 119.715 188.16 119.177 188.011L72.3537 174.92C71.676 174.728 71.0795 174.32 70.6547 173.759C70.2299 173.197 70 172.512 70 171.807C70 171.103 70.2299 170.418 70.6547 169.856C71.0795 169.294 71.676 168.886 72.3537 168.694L119.226 155.799C119.764 155.65 120.255 155.364 120.65 154.969C121.046 154.573 121.332 154.082 121.481 153.544L134.572 106.721C134.764 106.043 135.172 105.447 135.734 105.022C136.295 104.597 136.981 104.367 137.685 104.367C138.389 104.367 139.075 104.597 139.637 105.022C140.198 105.447 140.606 106.043 140.798 106.721L153.693 153.593C153.842 154.131 154.128 154.622 154.524 155.018C154.919 155.413 155.41 155.699 155.948 155.848Z" fill="currentColor"></path>
+            <path d="M386.827 289.992C404.33 292.149 403.84 305.828 386.876 307.299C346.623 310.829 298.869 316.271 282.199 360.005C274.844 379.192 269.942 403.2 267.49 432.029C267.427 432.846 267.211 433.626 266.856 434.319C266.501 435.012 266.015 435.602 265.431 436.05C254.988 444.041 251.212 434.186 250.183 425.606C239.2 332.353 214.588 316.909 124.668 306.122C123.892 306.031 123.151 305.767 122.504 305.35C121.857 304.933 121.322 304.375 120.942 303.72C116.399 295.679 119.324 291.038 129.718 289.796C224.688 278.47 236.062 262.83 250.183 169.331C252.177 156.355 257.259 154.083 265.431 162.516C266.51 163.593 267.202 165.099 267.392 166.782C279.257 258.564 293.328 278.617 386.827 289.992Z" fill="currentColor"></path>
+          </svg>
+          <span>Ask AI</span>
+        </div>
+      </div></template></div><div id="chrome-extension-boilerplate-react-vite-content-view-root"><template shadowrootmode="open"><style>
+  :host {
+    all: initial; /* Reset styles to avoid inheriting from the host page */
+    font-size: 16px; /* Set the base font size for rem calculations */
+  }
+  *, *::before, *::after {
+    box-sizing: border-box; /* Include padding and border in element's total width/height */
+  }
+</style><div id="shadow-root"><div class="fixed z-[9999] inter-font " style="top: 623px; left: 1448px; position: fixed;"><button id="blackbox-toggle" type="button" class="flex  size-[48px] rounded-logo  items-center justify-center  bg-black text-white shadow-lg transition focus:outline-none hover:scale-110 duration-300 transform" data-state="closed" style="flex-shrink: 0;"><img src="chrome-extension://mcgbeeipkmelnpldkobichboakdfaeon/logo.png" class="pointer-events-none rounded-logo select-none h-[48px] w-[48px]" draggable="false" style="flex-shrink: 0;"></button></div></div></template></div><div id="mw-teleport-target"></div></body></html>
